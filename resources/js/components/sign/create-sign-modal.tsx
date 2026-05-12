@@ -1,0 +1,69 @@
+import { useForm } from '@inertiajs/react';
+import { FormEventHandler, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { IoCreate } from 'react-icons/io5';
+import { toast } from 'sonner';
+
+import InputError from '@/components/input-error';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { ServerError } from '@/types';
+
+export default function CreateSignModal({ sign_category_id }: { sign_category_id: number }) {
+    const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const contentInput = useRef<HTMLInputElement>(null);
+
+    const { data, setData, post, processing, reset, errors, clearErrors } = useForm({
+        sign_category_id,
+        content: '',
+        image_url: '',
+        is_active: true,
+    });
+
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+        post(route('signs.store'), {
+            preserveScroll: true,
+            onSuccess: () => { reset(); setData('sign_category_id', sign_category_id); clearErrors(); setOpen(false); toast.success(t('created_successfully')); },
+            onError: (err: ServerError) => { contentInput.current?.focus(); toast.error(err.error || t('create_failed')); },
+        });
+    };
+
+    return (
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <button className="flex items-center gap-1 rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                    <IoCreate className="h-4 w-4" /> {t('create')}
+                </button>
+            </DialogTrigger>
+            <DialogContent className="max-w-md border bg-white dark:border-gray-700 dark:bg-gray-900">
+                <DialogTitle className="dark:text-white">{t('signs')}</DialogTitle>
+                <form onSubmit={submit} className="mt-4 space-y-4">
+                    <div>
+                        <Label className="dark:text-gray-200">{t('content')}</Label>
+                        <Input ref={contentInput} value={data.content} onChange={(e) => setData('content', e.target.value)} className="dark:border-gray-600 dark:bg-gray-800 dark:text-white" />
+                        <InputError message={errors.content} />
+                    </div>
+                    <div>
+                        <Label className="dark:text-gray-200">{t('image_url')}</Label>
+                        <Input value={data.image_url} onChange={(e) => setData('image_url', e.target.value)} className="dark:border-gray-600 dark:bg-gray-800 dark:text-white" />
+                        <InputError message={errors.image_url} />
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <input type="checkbox" id="sign-is-active" checked={data.is_active} onChange={(e) => setData('is_active', e.target.checked as true)} />
+                        <Label htmlFor="sign-is-active" className="dark:text-gray-200">{t('active_status')}</Label>
+                    </div>
+                    <DialogFooter>
+                        <DialogClose asChild>
+                            <Button variant="secondary" onClick={() => { reset(); setData('sign_category_id', sign_category_id); clearErrors(); }} className="dark:bg-gray-800 dark:text-gray-200">{t('cancel')}</Button>
+                        </DialogClose>
+                        <Button type="submit" disabled={processing} className="bg-blue-600 text-white">{t('save')}</Button>
+                    </DialogFooter>
+                </form>
+            </DialogContent>
+        </Dialog>
+    );
+}

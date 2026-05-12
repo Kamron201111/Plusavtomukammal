@@ -1,0 +1,246 @@
+[
+  {
+    "id": 3291,
+    "content": "Ushbu transport vositasiga chorraha orqali qaysi yo'nalishlar bo'yicha harakatlanishga ruxsat etiladi?",
+    "description": "YHQ: 4.1.4 «To'g'riga va o'ngga harakatlanish» buyuruvchi belgisi o'rnatilgan. Ushbu belgi faqat ko'rsatilgan yo'nalishlarda harakatlanishga ruxsat beradi.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1220.jpg",
+    "answers": [
+      {
+        "content": "Faqat to'g'riga va o'ngga",
+        "is_correct": 1
+      },
+      {
+        "content": "Faqat to'g'riga",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat chapga va qayrilib olishga",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat o'ngga",
+        "is_correct": 0
+      },
+      {
+        "content": "Barcha yo'nalishlarga",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3292,
+    "content": "Qaysi avtomobil haydovchisiga burilishga ruxsat etilgan?",
+    "description": "YHQ: 3.18.2 «Chapga burilish taqiqlangan» belgisi qayrilib olishni taqiqlamaydi. 3.19 «Qayrilib olish taqiqlangan» belgisi esa chapga burilishni taqiqlamaydi. Shuning uchun har ikkala haydovchi o'z harakatini amalga oshirishi mumkin.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1221.jpg",
+    "answers": [
+      {
+        "content": "Oq avtomobil haydovchisiga",
+        "is_correct": 0
+      },
+      {
+        "content": "Qizil avtomobil haydovchisiga",
+        "is_correct": 0
+      },
+      {
+        "content": "Har ikkisiga ruxsat etilgan",
+        "is_correct": 1
+      },
+      {
+        "content": "Har ikkisiga taqiqlangan",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3293,
+    "content": "Ushbu belgi qanday nomlanadi?",
+    "description": "YHQ: 5.15 «To'xtab turish joyi» belgisi ostidagi 7.23 belgisi to'xtab turish joyi yer ustida joylashganligini bildiradi.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1222.jpg",
+    "answers": [
+      {
+        "content": "To'xtab turish joyi",
+        "is_correct": 0
+      },
+      {
+        "content": "Pullik to'xtab turish joyi",
+        "is_correct": 0
+      },
+      {
+        "content": "Yer usti avtomobil qo'yish joyi",
+        "is_correct": 1
+      },
+      {
+        "content": "Yer osti avtomobil qo‘yish joyi",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3294,
+    "content": "Qaysi yo‘nalishda harakatlanish taqiqlanadi?",
+    "description": "YHQ: 4.1.1 «To'g'riga harakatlanish» belgisi chorrahadan oldin o'rnatilganda, u chorrahada o'ngga, chapga va qayrilib olishni taqiqlaydi (faqat to'g'riga ruxsat beradi).",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1223.jpg",
+    "answers": [
+      {
+        "content": "Faqat chapga",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat to‘g‘riga",
+        "is_correct": 0
+      },
+      {
+        "content": "O‘ngga, chapga va orqaga qayrilib olishga",
+        "is_correct": 1
+      },
+      {
+        "content": "Chapga va orqaga qayrilib olishga",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3295,
+    "content": "Siz chorrahadan chapga burilmoqchisiz, kimga yo‘l berishingiz kerak?",
+    "description": "YHQ: Teng ahamiyatli yo'llar chorrahasida chapga burilayotgan haydovchi qarama-qarshi tomondan to'g'riga kelayotgan va o'ngga burilayotgan barcha transport vositalariga yo'l berishi shart.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1224.jpg",
+    "answers": [
+      {
+        "content": "Traktorga",
+        "is_correct": 0
+      },
+      {
+        "content": "Mikroavtobusga",
+        "is_correct": 0
+      },
+      {
+        "content": "Birinchi o‘tish huquqiga egaman",
+        "is_correct": 0
+      },
+      {
+        "content": "Ikkala transportga",
+        "is_correct": 1
+      }
+    ]
+  },
+  {
+    "id": 3296,
+    "content": "Ushbu joyda quvib o‘tishga ruxsat beriladimi?",
+    "description": "YHQ: Tartibga solinmagan chorrahalarda asosiy yo'ldan harakatlanib kelayotgan transport vositalariga quvib o'tishga ruxsat beriladi.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1225.jpg",
+    "answers": [
+      {
+        "content": "Oldindagi transport vositasi tezligi 40 km/s dan kam bo‘lsa",
+        "is_correct": 0
+      },
+      {
+        "content": "Ruxsat beriladi",
+        "is_correct": 1
+      },
+      {
+        "content": "Taqiqlanadi",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3297,
+    "content": "Kemiruvchi va sudralib yuruvchi hayvonlar qaysi javobda ko‘rsatilgan?",
+    "description": "Rasmda 2-sonli (kemiruvchilar) va 3-sonli (sudralib yuruvchilar) ogohlantiruvchi belgilari ushbu hayvonlar chiqib qolish xavfini bildiradi.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1226.jpg",
+    "answers": [
+      {
+        "content": "3",
+        "is_correct": 0
+      },
+      {
+        "content": "2",
+        "is_correct": 0
+      },
+      {
+        "content": "4",
+        "is_correct": 0
+      },
+      {
+        "content": "2 va 3",
+        "is_correct": 1
+      },
+      {
+        "content": "1",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3298,
+    "content": "Qaysi belgi piyodalar o‘tish joyini bildiradi?",
+    "description": "YHQ: 2-raqamli belgi (5.16.1) bevosita piyodalar o'tish joyini bildiradi. 1-belgi bu ogohlantiruvchi belgi bo'lib, o'tish joyiga yaqinlashayotganlikni bildiradi.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1227.jpg",
+    "answers": [
+      {
+        "content": "1",
+        "is_correct": 0
+      },
+      {
+        "content": "3",
+        "is_correct": 0
+      },
+      {
+        "content": "2",
+        "is_correct": 1
+      }
+    ]
+  },
+  {
+    "id": 3299,
+    "content": "Qaysi rasmda quvib o‘tish ko‘rsatilgan?",
+    "description": "YHQ: Quvib o'tish — egallagan bo'lagidan chiqib, oldindagi transport vositasidan o'zib ketish va keyinchalik yana o'z bo'lagiga qaytishdir. Faqat birinchi rasmda bu manevr to'liq tasvirlangan.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1228.jpg",
+    "answers": [
+      {
+        "content": "Faqat birinchi rasmda",
+        "is_correct": 1
+      },
+      {
+        "content": "Faqat birinchi, ikkinchi va to‘rtinchi rasmlarda",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat birinchi va ikkinchi rasmlarda",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat birinchi va uchinchi rasmlarda",
+        "is_correct": 0
+      },
+      {
+        "content": "Barcha rasmlarda",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3300,
+    "content": "Asosiy yo‘l:",
+    "description": "YHQ: 2.1 «Asosiy yo'l» va 2.3.1 «Ikkinchi darajali yo'l bilan kesishuv» belgilari yo'lning asosiy ekanligini tasdiqlaydi. Bu belgilar yuqorigi ikkala rasmda tasvirlangan.",
+    "image_url": "https://e-avtomaktab.uz/storage/tests/e-avtomaktab1229.jpg",
+    "answers": [
+      {
+        "content": "Faqat yuqori chapdagi rasmda",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat yuqori o‘ngdagi rasmda",
+        "is_correct": 0
+      },
+      {
+        "content": "Yuqoridagi ikkala rasmda",
+        "is_correct": 1
+      },
+      {
+        "content": "Barcha rasmlarda",
+        "is_correct": 0
+      }
+    ]
+  }
+]

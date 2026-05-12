@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "content": "Qaysi avtomobil uchun bu belgilarning ta'sir oralig'ida to'xtashga ruxsat etiladi?",
+    "description": "YHQ 1-ilovasi 3.27: Ushbu Qoidalarning 176-bandiga binoan «Nogiron» tanish belgisi bilan belgilangan avtomobillar va kajavali mototsikllarni boshqarayotgan nogiron haydovchilar 3.2, 3.3 va 3.28 belgilari talablaridan chetga chiqishlari mumkin. 7.18 belgi bo'lganda 3.27 belgisining ta'sir doirasida to'xtashga ruxsat etiladi.",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_1.webp",
+    "answers": [
+      {
+        "content": "Qizilga",
+        "is_correct": 0
+      },
+      {
+        "content": "Ikkala avtomobilga",
+        "is_correct": 0
+      },
+      {
+        "content": "Hech qaysi biriga",
+        "is_correct": 0
+      },
+      {
+        "content": "«Nogiron» taniqlik belgisi bo'lgan sariq avtomobilga",
+        "is_correct": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "content": "Qaysi yo'naltirgichlar bo'ylab harakatlanishga ruxsat etiladi?",
+    "description": "YHQ 1-ilovasi 4.1.1 «Harakatlanish to'g'riga». Yoʻlning qismi boshlanishida oʻrnatilgan 4.1.1 belgisining ta'siri yaqin chorrahagacha joriy qilinadi. Belgi oʻng tomonda joylashgan hovlilarga va yoʻlga yondosh boshqa hududlarga burilishni taqiqlamaydi.",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_2.webp",
+    "answers": [
+      {
+        "content": "Faqat «А» yo'nalish bo'ylab",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat «Б» yo'nalish bo'ylab",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat «В» yo'nalish bo'ylab",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat «А» va «Г» yo'nalishlari bo'ylab",
+        "is_correct": 1
+      },
+      {
+        "content": "Faqat «Г» yo'nalish bo'ylab",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "content": "Tibbiyot qutichasi va o't o'chirgichi bo'lmagan qanday transport vositalaridan foydalanish taqiqlanadi?",
+    "description": "YHQ 3-ilovasi 7.10-bandiga asosan: Transport vositalari quyidagilar bilan jihozlanmagan bo'lsa ulardan foydalanish taqiqlanadi: M2, M3 toifadagi — favqulodda holatlarda oynani sindirish uchun foydalaniladigan bolg'acha, tibbiyot qutichasi, 2 ta o't o'chirgich (bittasi haydovchining kabinasida, ikkinchisi — yo'lovchilar salonida), majburiy to'xtaganini bildiruvchi belgi (yoki miltillovchi qizil chiroq) va nur qaytargichli kamzul (jilet); M1, N1, N2, N3 toifadagi, mikroavtobus va g'ildirakli traktorlarda tibbiyot qutichasi, o't o'chirgich, majburiy to'xtaganligini bildiruvchi belgi (yoki miltillovchi qizil chiroq) va nur qaytargichli kamzul (jilet); M3, N2, N3 toifadagi — o'zi yurib ketishidan saqlovchi, g'ildirak diametriga muvofiq (kamida ikkita) tirgak; O toifadagi, traktorlar, aravalar va boshqa o'ziyurar mashinalarda — tashqi nur qaytargichlar; kajavali mototsikllarda — tibbiyot qutichasi, majburiy to'xtaganligini bildiruvchi belgi.",
+    "image_url": "",
+    "answers": [
+      {
+        "content": "Faqat M1 toifali transport vositasi",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat M2; M3; N1 toifali transport vositasi",
+        "is_correct": 0
+      },
+      {
+        "content": "Faqat N2; N3 toifali transport vositasi",
+        "is_correct": 0
+      },
+      {
+        "content": "Barcha yuqorida ko'rsatilgan toifalar",
+        "is_correct": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "content": "Chorrahadan birinchi bo'lib o'tadi:",
+    "description": "YHQ 16-bobi 105-bandiga asosan: Teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan kelayotgan transport vositalariga yo'l berishi shart.",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_4.webp",
+    "answers": [
+      {
+        "content": "Qizil avtomobil",
+        "is_correct": 0
+      },
+      {
+        "content": "Ko'k avtomobil",
+        "is_correct": 0
+      },
+      {
+        "content": "Sariq avtomobil",
+        "is_correct": 0
+      },
+      {
+        "content": "Yashil avtomobil",
+        "is_correct": 1
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "content": "Harakatlanish taqiqlangan:",
+    "description": "YHQ 7-bobi 38-bandiga asosan: Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: Qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi. o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi. Qo'lini yuqoriga ko'targanda: ushbu Qoidalarning 42-bandida ko'rsatilganidan boshqa hollarda transport vositalari va piyodalarning barcha yo'nalishlarda harakatlanishi taqiqlanadi; tartibga soluvchi haydovchi va piyodalarga tushunarli bo'lgan boshqa ishoralarni ham berishi mumkin. Ishoralar yaxshi ko'rinishi uchun tartibga soluvchi jezl yoki yorug'lik qaytaradigan qizil rangli moslamalarni qo'llashi mumkin. Shuningdek, tartibga soluvchi o'z faoliyatini maxsus moslama (tumba) ustida turib olib borishi mumkin.",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_5.webp",
+    "answers": [
+      {
+        "content": "Qizil va oq avtomobillarga",
+        "is_correct": 0
+      },
+      {
+        "content": "Ko'k, yashil va oq avtomobillarga",
+        "is_correct": 1
+      },
+      {
+        "content": "Oq, ko'k va sariq avtomobillarga",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "content": "Qaysi transport vositasining haydovchisi chorrahadan birinchi bo'lib o'tadi?",
+    "description": "YHQ 15-bobi 100-bandiga asosan: Svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak.",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_6.webp",
+    "answers": [
+      {
+        "content": "Avtomobil va avtobus haydovchisi",
+        "is_correct": 1
+      },
+      {
+        "content": "Tramvay haydovchisi",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "content": "Shu joyda to'xtab turishga ruxsat etiladimi?",
+    "description": "YHQ 13-bobi 91-bandiga asosan: qatnov qismi kesishmalarida va kesishayotgan qatnov qismi chetiga 30 metrdan kam masofada (uch tomonlama kesishadigan chorrahalarda yondan tutashgan yo'lning sidirg'a chiziq yoki ajratuvchi mintaqa bilan ajratilgan qarama-qarshi tomoni bundan mustasno).",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_7.webp",
+    "answers": [
+      {
+        "content": "Ruxsat etiladi",
+        "is_correct": 1
+      },
+      {
+        "content": "Taqiqlanadi",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "content": "Haydovchi harakatlanishni boshlashdan oldin qanday amallarni bajarishi kerak?",
+    "description": "YHQ 9-bobi 53-bandiga asosan: Haydovchi harakatlanishni boshlash, manyovr qilish (qayta tizilish, burilish, qayrilib olish, quvib oʻtish va aylanib o'tish) va toʻxtashdan oldin bajarilayotgan manyovr boshqa yo'l harakati qatnashchilarini harakatlanishiga xavf tug'dirmasligi kerak.",
+    "image_url": "",
+    "answers": [
+      {
+        "content": "Transport vositasining sozligini va to'la jihozlanganligini tekshirishi",
+        "is_correct": 0
+      },
+      {
+        "content": "Harakatlanish boshlanishi xavfsiz bo'lishiga va harakatning boshqa ishtirokchilariga xalaqit bermasligiga ishonch hosil qilishi",
+        "is_correct": 1
+      },
+      {
+        "content": "Tegishli yo'nalishdagi burilishning yorug'lik ko'rsatkichi bilan ishora berishi",
+        "is_correct": 0
+      },
+      {
+        "content": "Sanab o'tilgan barcha harakatlarni bajarishi",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "content": "Umurtqa pog'onasining ko'krak sohasi shikastlangan jabrlanuvchini transportda qanday tashish kerak?",
+    "description": "Umurtqa pag'onasi shikastlanganda orqa (umurtqa) miyani jarohatlanishidan saqlab qolish uchun umurtqa pag'onalarining bir-biriga nisbatan siljishini oldini olish muhimdir. Umirtqaning minimal qo'zg'alishini ta'minlash uchun jarohatlangan kishini qattiq tekistlikka joylashtirib, uning harakatini imkon darajasida cheklash lozim.",
+    "image_url": "",
+    "answers": [
+      {
+        "content": "Qattiq taxtada orqasi bilan yotgan holda",
+        "is_correct": 1
+      },
+      {
+        "content": "Yumshoq to'shamada orqasi bilan yotgan holda",
+        "is_correct": 0
+      },
+      {
+        "content": "Qattiq taxtada yoni bilan yotgan holda",
+        "is_correct": 0
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "content": "Bunday taniqlik belgisi bilan belgilanadigan transport vositasi:",
+    "description": "YHQ 29-bobi 176-bandiga asosan: “Uzun o'lchamli transport vositasi” — yukli va yuksiz uzunligi 20 metrdan oshadigan transport vositasining, ikki yoki undan ko'proq tirkamali avtopoyezdlarning orqasida — kengligi 40 millimetr bo'lgan qizil hoshiyali, o'lchami 1200x200 millimetr bo'lgan, sariq rangli, nur qaytaruvchi to'rtburchak shaklidagi belgi.",
+    "image_url": "https://avtoimtihon.uz/quiz-images/i1_10.webp",
+    "answers": [
+      {
+        "content": "Og'ir vaznli va yirik o'lchamli yuklarni tashuvchi",
+        "is_correct": 0
+      },
+      {
+        "content": "Uzunligi yuk bilan yoki yuksiz 20 metrdan ortiq bo'lgan transport vositasi",
+        "is_correct": 1
+      },
+      {
+        "content": "Furgon yukxonasida odamlarni tashuvchi",
+        "is_correct": 0
+      }
+    ]
+  }
+]

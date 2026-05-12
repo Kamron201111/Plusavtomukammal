@@ -1,0 +1,197 @@
+[
+  {
+    "title": "Bilet 1",
+    "description": "",
+    "is_active": 1,
+    "questions": [
+      {
+        "content": "Yengil avtomobilning tormoz yo‘li tormoz tizimiga ega\nbo‘lmagan tirkama bilan harakatlanayotganda qanday\no‘zgaradi?",
+        "image_url": "",
+        "answers": [
+          {
+            "content": "A) Kamayadi, chunki tirkama harakatlanishga qo‘shimcha\nqarshilik ko‘rsatadi",
+            "is_correct": 0
+          },
+          {
+            "content": "B) O‘zgarmaydi.",
+            "is_correct": 0
+          },
+          {
+            "content": "C) Ortadi",
+            "is_correct": 1
+          }
+        ]
+      },
+      {
+        "content": "Qaysi belgi tartibga solinmagan\npiyodalar o'tish joyiga\nyaqinlashayotganlik haqida\nogohlantiradi?",
+        "image_url": "questions/2.jpg",
+        "answers": [
+          {
+            "content": "A) \"A\" va \"Б\"",
+            "is_correct": 0
+          },
+          {
+            "content": "B) \"A\"",
+            "is_correct": 1
+          },
+          {
+            "content": "C) Hammasi",
+            "is_correct": 0
+          }
+        ]
+      },
+      {
+        "content": "Old chiroqlar va orqa gabarit chiroqlari ishlamayotgan transport\nvositasi harakatini davom ettirishi taqiqlanadi?",
+        "image_url": "",
+        "answers": [
+          {
+            "content": "A) Faqat yetarli ko'rinmaslikda",
+            "is_correct": 0
+          },
+          {
+            "content": "B) Faqat kunning qorong'i vaqtida",
+            "is_correct": 0
+          },
+          {
+            "content": "C) Barcha javoblarda ko'rsatilgan holatlarda",
+            "is_correct": 1
+          }
+        ]
+      },
+      {
+        "content": "Qatnov qismi yo'l chiziqlari bilan ajratilgan bo'lsa haydovchilar\nqanday holatlarda qat'iy bo'laklar bo'yicha harakatlanishlari kerak?\nF1. Faqat harakatlanish bo'laklari uzliksiz sidirg'a chiziqlar bilan",
+        "image_url": "",
+        "answers": [
+          {
+            "content": "B) Faqat harakatlanish serqatnov bo'lganda",
+            "is_correct": 0
+          },
+          {
+            "content": "C) Barcha holatlarda",
+            "is_correct": 1
+          }
+        ]
+      },
+      {
+        "content": "Chorrahdan birinchi\nbo'lib kesib o'tadi",
+        "image_url": "questions/5.jpg",
+        "answers": [
+          {
+            "content": "A) Ko'k avtomobil",
+            "is_correct": 0
+          },
+          {
+            "content": "B) Yashil avtomobil",
+            "is_correct": 1
+          },
+          {
+            "content": "C) Qizil avtomobil",
+            "is_correct": 0
+          }
+        ]
+      },
+      {
+        "content": "Chorrahadan ikkinchi bo'lib qaysi\ntransport vositasi kesib o'tadi?",
+        "image_url": "questions/6.jpg",
+        "answers": [
+          {
+            "content": "A) Yashil avtomobil tramvay bilan\nbir vaqtda",
+            "is_correct": 1
+          },
+          {
+            "content": "B) Yashil avtomobil",
+            "is_correct": 0
+          },
+          {
+            "content": "C) Qizil avtomobil",
+            "is_correct": 0
+          }
+        ]
+      },
+      {
+        "content": "Ko'rsatilgan belgilardan\nqaysilarining talabi bevosita\no`rnatilgan joyidan kuchga\nkiradi?",
+        "image_url": "questions/7.jpg",
+        "answers": [
+          {
+            "content": "A) Faqat Б",
+            "is_correct": 0
+          },
+          {
+            "content": "B) А va Б",
+            "is_correct": 1
+          },
+          {
+            "content": "C) Hammasi",
+            "is_correct": 0
+          }
+        ]
+      },
+      {
+        "content": "Tartibga solinmagan chorrahada\nqaysi belgi albatta to'xtashni\ntalab qiladi?",
+        "image_url": "questions/8.jpg",
+        "answers": [
+          {
+            "content": "A) Faqat harakatlanish bo'laklari uzliksiz sidirg'a chiziqlar bilan\najratilgan bo'lsa",
+            "is_correct": 0
+          },
+          {
+            "content": "A) Faqat А",
+            "is_correct": 0
+          },
+          {
+            "content": "B) Faqat Б",
+            "is_correct": 1
+          },
+          {
+            "content": "C) Б va В",
+            "is_correct": 0
+          },
+          {
+            "content": "D) Hammasi",
+            "is_correct": 0
+          }
+        ]
+      },
+      {
+        "content": "Asosiy yo`l –",
+        "image_url": "",
+        "answers": [
+          {
+            "content": "A) Tuproqli yo'lga nisbatan qattiq qoplamali (asfalt va sement-betonli,\ntosh va shunga o'xshash qoplamali)",
+            "is_correct": 1
+          },
+          {
+            "content": "B) Toshli yo'lga nisbatan asfalt qoplamali yo'l",
+            "is_correct": 0
+          },
+          {
+            "content": "C) Ikki bo'lakli yo'lga nisbatan uch yoki undan ko'p bo'lakli yo'l",
+            "is_correct": 0
+          },
+          {
+            "content": "D) Barcha javoblar to'g'ri",
+            "is_correct": 0
+          }
+        ]
+      },
+      {
+        "content": "Qaysi transport vositalari yo'nalishli transport vositalari hisoblanadi?",
+        "image_url": "",
+        "answers": [
+          {
+            "content": "A) Belgilangan yo'nalishi va bekatlari bo'lgan, yo'lovchi tashish\nuchun mo'ljallangan umum foydalanishdagi transport vositalalari",
+            "is_correct": 1
+          },
+          {
+            "content": "B) Avtobuslar",
+            "is_correct": 0
+          },
+          {
+            "content": "C) Yo'lovchilarni tashuvchi istalgan transport vositalari",
+            "is_correct": 0
+          }
+        ]
+      }
+    ]
+  }
+]

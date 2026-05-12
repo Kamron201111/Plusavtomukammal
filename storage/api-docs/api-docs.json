@@ -1,0 +1,1504 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Demo API",
+        "description": "Description of your API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/attempt_answers/{attempt_answer}": {
+            "put": {
+                "tags": [
+                    "Attempt Answers"
+                ],
+                "summary": "Update attempt answer",
+                "description": "Update selected answer for a specific attempt answer",
+                "operationId": "c175752e3902bb0efc51ac9fcc55506a",
+                "parameters": [
+                    {
+                        "name": "attempt_answer",
+                        "in": "path",
+                        "description": "AttemptAnswer ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "answer_id"
+                                ],
+                                "properties": {
+                                    "answer_id": {
+                                        "description": "Selected answer ID",
+                                        "type": "integer",
+                                        "example": 3
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "AttemptAnswer updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Attempt answer updated successfully."
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/AttemptAnswer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/attempts": {
+            "get": {
+                "tags": [
+                    "Attempts"
+                ],
+                "summary": "List attempts",
+                "description": "Get paginated list of attempts with optional filters",
+                "operationId": "149a964df8d202f7ffd116053f47a726",
+                "parameters": [
+                    {
+                        "name": "ticket_id",
+                        "in": "query",
+                        "description": "Filter by ticket ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "Filter by user ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 5
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "example": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Attempts fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Attempts fetched successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Attempt"
+                                                    }
+                                                },
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "last_page": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "example": 15
+                                                },
+                                                "total": {
+                                                    "type": "integer",
+                                                    "example": 42
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Attempts"
+                ],
+                "summary": "Create a new attempt",
+                "description": "Creates a new attempt for the authenticated user and assigns random questions from the ticket, or completely random questions if no ticket is provided.",
+                "operationId": "3c09ee73fe75d0d4b526de0da0b9f625",
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ticket_id": {
+                                        "description": "ID of the ticket to attempt. Leave empty for random exam mode.",
+                                        "type": "integer",
+                                        "example": 1,
+                                        "nullable": true
+                                    },
+                                    "questions_count": {
+                                        "description": "Number of questions to assign if ticket_id is null. Default is 20.",
+                                        "type": "integer",
+                                        "enum": [
+                                            20,
+                                            50
+                                        ],
+                                        "example": 20,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Attempt created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Attempt created successfully."
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Attempt"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The ticket_id field is required."
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error creating attempt: ..."
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/attempts/{attempt}": {
+            "get": {
+                "tags": [
+                    "Attempts"
+                ],
+                "summary": "Get attempt details",
+                "description": "Get attempt with ticket, questions, answers and selected answers",
+                "operationId": "4ced9d29d15d39c780ef6325cd214b41",
+                "parameters": [
+                    {
+                        "name": "attempt",
+                        "in": "path",
+                        "description": "Attempt ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Attempt fetched successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Attempt created successfully."
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Attempt"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Attempt not found"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/attempts/{attempt}/submit": {
+            "post": {
+                "tags": [
+                    "Attempts"
+                ],
+                "summary": "Submit attempt and calculate score",
+                "operationId": "43a8ea70738115ead3da8e6d73891d7e",
+                "parameters": [
+                    {
+                        "name": "attempt",
+                        "in": "path",
+                        "description": "Attempt ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Attempt submitted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Attempt submitted successfully."
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Attempt"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Attempt not found"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Authenticate user",
+                "description": "Authenticates a user with login credentials",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "login",
+                        "in": "query",
+                        "description": "login",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "admin"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "password of users",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "123456"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "data": {
+                                            "description": "Empty object",
+                                            "properties": {},
+                                            "type": "object",
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "data": {
+                                            "description": "Empty object",
+                                            "properties": {},
+                                            "type": "object",
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Login field is required."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "data": {
+                                            "description": "Empty object",
+                                            "properties": {},
+                                            "type": "object",
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Login or password incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "data": {
+                                            "description": "Empty object",
+                                            "properties": {},
+                                            "type": "object",
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation error message."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login-otp": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login via Telegram OTP",
+                "description": "Foydalanuvchi faqat Telegram orqali olingan OTP kodi bilan tizimga kiradi.",
+                "operationId": "loginWithOtp",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "otp"
+                                ],
+                                "properties": {
+                                    "otp": {
+                                        "description": "Telegram bot orqali yuborilgan OTP kod",
+                                        "type": "string",
+                                        "example": "57148293"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Muvaffaqiyatli login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "OTP orqali muvaffaqiyatli login qilindi."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 57
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Islombek Abdurakhmonov"
+                                                },
+                                                "username": {
+                                                    "type": "string",
+                                                    "example": "islombekdev"
+                                                },
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "1|asdasdasdadasd"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "OTP kiritilmagan"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "OTP noto‘g‘ri yoki muddati o‘tgan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "OTP noto‘g‘ri yoki muddati o‘tgan."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/road_line": {
+            "get": {
+                "tags": [
+                    "Rules & Info"
+                ],
+                "summary": "Get all Road Lines",
+                "description": "Returns a list of all available road lines with descriptions.",
+                "operationId": "6f8ff86a7c6cad919f362f10d823f3c2",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "Solid line"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Do not cross..."
+                                                    },
+                                                    "image": {
+                                                        "type": "string",
+                                                        "example": "/storage/lines/solid.png"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/sign_category": {
+            "get": {
+                "tags": [
+                    "Rules & Info"
+                ],
+                "summary": "Get all Sign Categories with Signs",
+                "description": "Returns all sign categories including their underlying signs.",
+                "operationId": "823079d18beba4ea9cd973af069e67e5",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "Warning Signs"
+                                                    },
+                                                    "signs": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "title": {
+                                                                    "type": "string",
+                                                                    "example": "Stop Sign"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/webapp-login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Telegram WebApp Login",
+                "description": "Validates Telegram WebApp user payload and returns a Sanctum access token.",
+                "operationId": "5bdfa2b159a19c3c02d4d1b574a1f32b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "description": "Telegram User ID",
+                                        "type": "integer",
+                                        "example": 123456789
+                                    },
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "John",
+                                        "nullable": true
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Doe",
+                                        "nullable": true
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "example": "johndoe",
+                                        "nullable": true
+                                    },
+                                    "photo_url": {
+                                        "type": "string",
+                                        "example": "https://t.me/i/userpic/...",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully authenticated"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "1|AbCdEfG..."
+                                                },
+                                                "user": {
+                                                    "$ref": "#/components/schemas/User"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error"
+                    }
+                }
+            }
+        },
+        "/api/tickets": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get active tickets",
+                "description": "Active tickets list with user's attempt count",
+                "operationId": "ddc3a5e66a83482e874c84e71ebc4505",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "example": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tickets retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Tickets retrieved successfully"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Ticket"
+                                                    }
+                                                },
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "example": 15
+                                                },
+                                                "total": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get authenticated user",
+                "description": "Returns currently authenticated user",
+                "operationId": "ef3192335324c07faff67807a2e8a2f8",
+                "responses": {
+                    "200": {
+                        "description": "User retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User retrieved successfully"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/{user}": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update user",
+                "description": "Update user profile information",
+                "operationId": "280a16572cbf0240b296fc2c686d5c45",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "username": {
+                                        "type": "string",
+                                        "example": "johndoe"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "+998901234567"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john@example.com"
+                                    },
+                                    "password": {
+                                        "description": "Optional new password",
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "secret123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User updated successfully"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/yhq": {
+            "get": {
+                "tags": [
+                    "Rules & Info"
+                ],
+                "summary": "Get YHQ Content",
+                "description": "Returns the latest active YHQ document with nested categories and items.",
+                "operationId": "a16d2df0a17b8619d096aaf0ae52662a",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "YHQ 2024"
+                                                },
+                                                "categories": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "title": {
+                                                                "type": "string",
+                                                                "example": "General Rules"
+                                                            },
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "integer",
+                                                                            "example": 1
+                                                                        },
+                                                                        "content": {
+                                                                            "type": "string",
+                                                                            "example": "Rule 1.1"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Answer": {
+                "title": "Answer",
+                "required": [
+                    "id",
+                    "question_id",
+                    "content",
+                    "is_correct"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "question_id": {
+                        "description": "ID of the related question",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "content": {
+                        "description": "Answer content",
+                        "type": "string",
+                        "example": "42"
+                    },
+                    "is_correct": {
+                        "description": "Indicates if this is the correct answer",
+                        "type": "boolean",
+                        "example": true
+                    }
+                },
+                "type": "object"
+            },
+            "Attempt": {
+                "title": "Attempt",
+                "required": [
+                    "id",
+                    "ticket_id",
+                    "user_id",
+                    "score",
+                    "started_at"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ticket_id": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 7
+                    },
+                    "score": {
+                        "type": "integer",
+                        "example": 0
+                    },
+                    "started_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2026-01-21T10:15:00Z"
+                    },
+                    "finished_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": null,
+                        "nullable": true
+                    },
+                    "ticket": {
+                        "$ref": "#/components/schemas/Ticket"
+                    },
+                    "attempt_answers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AttemptAnswer"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "AttemptAnswer": {
+                "title": "AttemptAnswer",
+                "required": [
+                    "id",
+                    "attempt_id",
+                    "question_id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "attempt_id": {
+                        "description": "ID of the related attempt",
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "question_id": {
+                        "description": "ID of the related question",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "answer_id": {
+                        "description": "ID of the selected answer, nullable if not answered yet",
+                        "type": "integer",
+                        "example": 3,
+                        "nullable": true
+                    },
+                    "question": {
+                        "$ref": "#/components/schemas/Question"
+                    },
+                    "answer": {
+                        "$ref": "#/components/schemas/Answer"
+                    }
+                },
+                "type": "object"
+            },
+            "Question": {
+                "title": "Question",
+                "required": [
+                    "id",
+                    "ticket_id",
+                    "content"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ticket_id": {
+                        "description": "ID of the related ticket",
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "content": {
+                        "description": "Question text",
+                        "type": "string",
+                        "example": "What is 2 + 2?"
+                    },
+                    "image_url": {
+                        "description": "Optional image URL for the question",
+                        "type": "string",
+                        "example": null,
+                        "nullable": true
+                    },
+                    "answers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Answer"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Ticket": {
+                "title": "Ticket",
+                "required": [
+                    "id",
+                    "title",
+                    "is_active"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "description": "Ticket title",
+                        "type": "string",
+                        "example": "Math Quiz"
+                    },
+                    "description": {
+                        "description": "Optional description of the ticket",
+                        "type": "string",
+                        "example": "A set of math questions",
+                        "nullable": true
+                    },
+                    "is_active": {
+                        "description": "Indicates if the ticket is active",
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "questions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Question"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "title": "User",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "johndoe",
+                        "nullable": true
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "+998901234567",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "john@example.com",
+                        "nullable": true
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "example": "https://example.com/avatar.png",
+                        "nullable": true
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "example": "admin"
+                        }
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2026-01-21T10:15:00Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2026-01-21T10:15:00Z"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Attempt Answers",
+            "description": "Attempt Answers"
+        },
+        {
+            "name": "Attempts",
+            "description": "Attempts"
+        },
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Rules & Info",
+            "description": "Rules & Info"
+        },
+        {
+            "name": "Tickets",
+            "description": "Tickets"
+        },
+        {
+            "name": "User",
+            "description": "User"
+        }
+    ]
+}
