@@ -440,9 +440,8 @@ export default function ExamInterface({ attempt, fontSize = 15, isExplanationEna
                     </div>
                 </div>
             )}
-        </div>
 
-            {/* ZOOM MODAL — rasmga bosing, katta ekranda ochiladi. Qayta bosing — yopiladi */}
+            {/* ZOOM MODAL */}
             {zoomedImage && (
                 <div
                     onClick={() => setZoomedImage(null)}
