@@ -24,10 +24,19 @@ WORKDIR /var/www/html
 # Fayllarni ko'chiramiz
 COPY . .
 
-# .env yaratamiz
-RUN cp .env.example .env
+# .env yaratamiz va SQLite ga o'zgartiramiz
+RUN cp .env.example .env \
+    && sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env \
+    && sed -i '/DB_HOST=/d' .env \
+    && sed -i '/DB_PORT=/d' .env \
+    && sed -i '/DB_DATABASE=/d' .env \
+    && sed -i '/DB_USERNAME=/d' .env \
+    && sed -i '/DB_PASSWORD=/d' .env \
+    && sed -i 's/SESSION_DRIVER=.*/SESSION_DRIVER=file/' .env \
+    && sed -i 's/CACHE_STORE=.*/CACHE_STORE=file/' .env \
+    && sed -i 's/QUEUE_CONNECTION=.*/QUEUE_CONNECTION=sync/' .env
 
-# Cache papkalarini yaratamiz va ruxsat beramiz
+# Cache papkalarini yaratamiz
 RUN mkdir -p bootstrap/cache storage/framework/cache \
     storage/framework/sessions storage/framework/views \
     storage/logs \
